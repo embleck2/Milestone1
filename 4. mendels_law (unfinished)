@@ -1,18 +1,3 @@
-# this is wrong but keeping it for reference
-def mendels_law (hom, het, rec):
-    tot = hom + het + rec
-
-    pAAAA = ((hom/tot)*(hom/tot))*1
-    pAAAa = ((hom/tot)*(het/tot))*1
-    pAAaa = ((hom/tot)*(rec/tot))*1
-    pAaAa = ((het/tot)*(het/tot))*0.75
-    pAaaa = ((het/tot)*(rec/tot))*0.5
-
-    sump = pAAAA + pAAAa + pAAaa + pAaAa + pAaaa
-    return sump
-
-
-#this code works for the first two test codes 
 def mendels_law (hom, het, rec):
     # total calculation
     total = hom + het + rec
@@ -35,7 +20,7 @@ def mendels_law (hom, het, rec):
         for i in range(0,b):
             sumhet += i
         return sumhet
-    calcAaAa = .25*AaAa(rec)
+    calcAaAa = .25*AaAa(het)
     # Aaaa calculation
     Aaaa = het*rec
     calcAaaa = .5*Aaaa
