@@ -1,0 +1,13 @@
+# this is function number 2
+def dna2rna(dna):
+    rna = ''
+    for char in dna:
+        if char == 'A':
+            rna = rna + 'U'
+        elif char == 'T':
+            rna = rna + 'A'
+        elif char == 'G':
+            rna = rna + 'C'
+        elif char == 'C':
+            rna = rna + 'G'
+        return rna
