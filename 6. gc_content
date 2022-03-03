@@ -1,0 +1,17 @@
+dna_list = ["CCTGCGGAAGATCGGCACTAGAATAGCCAGAACCGTTTCTCTGAGGCTTCCGGCCTTCCCTCCCACTAATAATTCTGAGG",
+ "CCATCGGTAGCGCATCCTTAGTCCAATTAAGTCCCTATCCAGGCGCTCCGCCGAAGGTCTATATCCATTTGTCAGCAGACACGC",
+ "CCACCCTCGTGGTATGGCTAGGCATTCAGGAACCGGAGAACGCTTCAGACCAGCCCGGACTGGGAACCTGCGGGCAGTAGGTGGAAT"]
+def gc_content(dna_list):
+    index = 0 
+    highest_percent = 0
+    for string in dna_list:
+        count = 0 
+        for char in string:
+            if char == 'C' or char == 'G':
+                count = count + 1
+        percentage = 100*count / (len(string))
+        if percentage > highest_percent:
+            highest_percent = percentage
+           #index = dna_list.find(string)
+    return(index, highest_percent)
+print(gc_content(dna_list))
