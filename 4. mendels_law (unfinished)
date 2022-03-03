@@ -1,0 +1,12 @@
+def mendels_law (hom, het, rec):
+    tot = hom + het + rec
+
+    pAAAA = ((hom/tot)*(hom/tot))*1
+    pAAAa = ((hom/tot)*(het/tot))*1
+    pAAaa = ((hom/tot)*(rec/tot))*1
+    pAaAa = ((het/tot)*(het/tot))*0.75
+    pAaaa = ((het/tot)*(rec/tot))*0.5
+
+    sump = pAAAA + pAAAa + pAAaa + pAaAa + pAaaa
+    return sump
+    
