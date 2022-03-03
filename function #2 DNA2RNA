@@ -3,11 +3,12 @@ def dna2rna(dna):
     rna = ''
     for char in dna:
         if char == 'A':
-            rna = rna + 'U'
+            rna += 'A'
         elif char == 'T':
-            rna = rna + 'A'
+            rna += 'U'
         elif char == 'G':
-            rna = rna + 'C'
+            rna += 'G'
         elif char == 'C':
-            rna = rna + 'G'
-        return rna
+            rna += 'C'
+    return rna
+print(dna2rna(dna))
