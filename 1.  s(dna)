@@ -1,0 +1,5 @@
+def s( dna ):
+    dict = {'A' : 0, 'C' : 0, 'G' : 0, 'T' : 0}
+    for letter in dict:
+        dict[letter] += dna.upper().count(letter)
+    return dict
