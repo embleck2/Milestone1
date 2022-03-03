@@ -11,4 +11,3 @@ def dna2rna(dna):
         elif char == 'C':
             rna += 'C'
     return rna
-print(dna2rna(dna))
