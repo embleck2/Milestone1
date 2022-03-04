@@ -1,0 +1,6 @@
+def count_dom_phenotype(genotypes):
+    # total calculation 
+    total = sum(genotypes)*2
+    rec_ = 2*(genotypes[3]*.25 + genotypes[4]*0.5 + genotypes[5])
+    domnum = total-rec_
+    return domnum
