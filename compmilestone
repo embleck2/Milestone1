@@ -6,6 +6,7 @@ def s( dna ):
         dict[letter] += dna.upper().count(letter)
     return dict
     
+#Rose 
 
 def dna2rna(dna):
     rna = ''
@@ -20,6 +21,7 @@ def dna2rna(dna):
             rna += 'C'
     return rna
     
+#Annika
 
 def reverse_complement(dna):
     comp = ''
@@ -33,7 +35,6 @@ def reverse_complement(dna):
         elif symbol == 'G':
             comp = comp + 'C'
     return comp[::-1]
-    
 
 #Emmy
 
@@ -67,7 +68,6 @@ def mendels_law (hom, het, rec):
     n_rec = calcaaaa + calcAaAa + calcAaaa
     P = 1 - (n_rec/n_total)
     return P
-    
 
 # Rose
 
@@ -80,9 +80,6 @@ def fibonacci_rabbits(n, k):
  
  # Rose & Aryan
 
-dna_list = ["CCTGCGGAAGATCGGCACTAGAATAGCCAGAACCGTTTCTCTGAGGCTTCCGGCCTTCCCTCCCACTAATAATTCTGAGG",
- "CCATCGGTAGCGCATCCTTAGTCCAATTAAGTCCCTATCCAGGCGCTCCGCCGAAGGTCTATATCCATTTGTCAGCAGACACGC",
- "CCACCCTCGTGGTATGGCTAGGCATTCAGGAACCGGAGAACGCTTCAGACCAGCCCGGACTGGGAACCTGCGGGCAGTAGGTGGAAT"]
 def gc_content(dna_list):
     index = 0 
     highest_percent = 0
@@ -95,8 +92,6 @@ def gc_content(dna_list):
         if percentage > highest_percent:
             highest_percent = percentage
     return(index, highest_percent)
-print(gc_content(dna_list))
-(2, 60.91954022988506)
 
 # Rose
 
@@ -115,28 +110,24 @@ def rna2codon(rna):
         'AGU': 'S', 'AGC': 'S', 'AGA': 'R', 'AGG': 'R',        'GGU': 'G', 'GGC': 'G', 'GGA': 'G', 'GGG': 'G',
     }
     codons = ''
-    for index in range(0,len(rna)-3,3):
+    x = len(rna) % 4
+    for index in range(0,len(rna)-x,3):
         key = rna[index:index+3]
         codons += genetic_code[key]
     return codons
-#print(rna2codon(sample_rna))
+    
 
-#Rose & Annika
-
-dna = 'GATATATGCATATACTT'
-dna_snippet = "ATAT"
+#Annika
 
 def locate_substring(dna_snippet, dna):
     list= []
-    for i in range(len(dna)-3):
+    x = len(dna)%len(dna_snippet)
+    for i in range(len(dna)-x):
         if (dna[i:i+4] == dna_snippet):
             list.append(i)
     return list
 
 #Annika
-
-dna1 = 'GAGCCTACTAACGGGAT'
-dna2 = 'CATCGTAATGACGGCCT'
 
 def hamming_dist(dna1,dna2):
     x = 0
@@ -154,3 +145,42 @@ def count_dom_phenotype(genotypes):
     rec_ = 2*(genotypes[3]*.25 + genotypes[4]*0.5 + genotypes[5])
     domnum = total-rec_
     return domnum
+
+# Aryan
+
+def source_rna(protein):
+    genetic_code = {
+       'UUU': 'F', 'UUC': 'F', 'UUA': 'L', 'UUG': 'L',        'CUU': 'L', 'CUC': 'L', 'CUA': 'L', 'CUG': 'L',
+       'AUU': 'I', 'AUC': 'I', 'AUA': 'I', 'AUG': 'M',        'GUU': 'V', 'GUC': 'V', 'GUA': 'V', 'GUG': 'V',
+
+       'UCU': 'S', 'UCC': 'S', 'UCA': 'S', 'UCG': 'S',        'CCU': 'P', 'CCC': 'P', 'CCA': 'P', 'CCG': 'P',
+       'ACU': 'T', 'ACC': 'T', 'ACA': 'T', 'ACG': 'T',        'GCU': 'A', 'GCC': 'A', 'GCA': 'A', 'GCG': 'A',
+
+       'UAU': 'Y', 'UAC': 'Y', 'UAA': '*', 'UAG': '*',        'CAU': 'H', 'CAC': 'H', 'CAA': 'Q', 'CAG': 'Q',
+       'AAU': 'N', 'AAC': 'N', 'AAA': 'K', 'AAG': 'K',        'GAU': 'D', 'GAC': 'D', 'GAA': 'E', 'GAG': 'E',
+
+       'UGU': 'C', 'UGC': 'C', 'UGA': '*', 'UGG': 'W',        'CGU': 'R', 'CGC': 'R', 'CGA': 'R', 'CGG': 'R',
+       'AGU': 'S', 'AGC': 'S', 'AGA': 'R', 'AGG': 'R',        'GGU': 'G', 'GGC': 'G', 'GGA': 'G', 'GGG': 'G',
+   }
+    master_count = 1
+
+    for symbol in protein:
+          count=0
+          for check in genetic_code:
+              if genetic_code[check] == symbol:
+                  count = count + 1
+          master_count = master_count * count
+    
+              
+    master_count = master_count * 3
+    return master_count
+ 
+# Annika & Emmy
+
+def splice_rna(dna, intron_list):
+    rna = dna2rna(dna)
+    introns = locate_substring(intron_list,rna)
+    rna = rna.replace('[introns]','')
+    print(rna)
+    proteinstr = rna2codon(rna)
+    return proteinstr
