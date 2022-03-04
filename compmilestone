@@ -110,12 +110,11 @@ def rna2codon(rna):
         'AGU': 'S', 'AGC': 'S', 'AGA': 'R', 'AGG': 'R',        'GGU': 'G', 'GGC': 'G', 'GGA': 'G', 'GGG': 'G',
     }
     codons = ''
-    for index in range(0,len(rna),3):
+    x = len(rna) % 4
+    for index in range(0,len(rna)-x,3):
         key = rna[index:index+3]
-        if key == 'UUU' or 'UAG' or 'UGA':
-            continue
-        else:
-            codons += genetic_code[key]
+        codons += genetic_code[key]
+    codons = codons.replace("*",'')
     return codons
     
 #Annika
