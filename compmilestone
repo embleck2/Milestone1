@@ -80,9 +80,6 @@ def fibonacci_rabbits(n, k):
  
  # Rose & Aryan
 
-dna_list = ["CCTGCGGAAGATCGGCACTAGAATAGCCAGAACCGTTTCTCTGAGGCTTCCGGCCTTCCCTCCCACTAATAATTCTGAGG",
- "CCATCGGTAGCGCATCCTTAGTCCAATTAAGTCCCTATCCAGGCGCTCCGCCGAAGGTCTATATCCATTTGTCAGCAGACACGC",
- "CCACCCTCGTGGTATGGCTAGGCATTCAGGAACCGGAGAACGCTTCAGACCAGCCCGGACTGGGAACCTGCGGGCAGTAGGTGGAAT"]
 def gc_content(dna_list):
     index = 0 
     highest_percent = 0
@@ -120,9 +117,6 @@ def rna2codon(rna):
 
 #Rose & Annika
 
-dna = 'GATATATGCATATACTT'
-dna_snippet = "ATAT"
-
 def locate_substring(dna_snippet, dna):
     list= []
     for i in range(len(dna)-3):
@@ -131,9 +125,6 @@ def locate_substring(dna_snippet, dna):
     return list
 
 #Annika
-
-dna1 = 'GAGCCTACTAACGGGAT'
-dna2 = 'CATCGTAATGACGGCCT'
 
 def hamming_dist(dna1,dna2):
     x = 0
