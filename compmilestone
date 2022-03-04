@@ -119,7 +119,8 @@ def rna2codon(rna):
 
 def locate_substring(dna_snippet, dna):
     list= []
-    for i in range(len(dna)-3):
+    x = len(dna)%4
+    for i in range(len(dna)-x):
         if (dna[i:i+4] == dna_snippet):
             list.append(i)
     return list
