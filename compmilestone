@@ -6,6 +6,7 @@ def s( dna ):
         dict[letter] += dna.upper().count(letter)
     return dict
     
+#Rose 
 
 def dna2rna(dna):
     rna = ''
@@ -20,6 +21,7 @@ def dna2rna(dna):
             rna += 'C'
     return rna
     
+#Annika
 
 def reverse_complement(dna):
     comp = ''
@@ -33,7 +35,6 @@ def reverse_complement(dna):
         elif symbol == 'G':
             comp = comp + 'C'
     return comp[::-1]
-    
 
 #Emmy
 
@@ -67,7 +68,6 @@ def mendels_law (hom, het, rec):
     n_rec = calcaaaa + calcAaAa + calcAaaa
     P = 1 - (n_rec/n_total)
     return P
-    
 
 # Rose
 
@@ -119,7 +119,7 @@ def rna2codon(rna):
         key = rna[index:index+3]
         codons += genetic_code[key]
     return codons
-#print(rna2codon(sample_rna))
+print(rna2codon(sample_rna))
 
 #Rose & Annika
 
@@ -183,5 +183,7 @@ def source_rna(protein):
               
     master_count = master_count * 3
     return master_count
-    
-    # Annika & Emmy
+ 
+# Annika & Emmy
+
+
