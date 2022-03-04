@@ -121,22 +121,17 @@ def rna2codon(rna):
     return codons
 #print(rna2codon(sample_rna))
 
+#Rose & Annika
 
-def locate_substring(dna_snippet,dna):
-    list = []
-    for char in range(0,len(dna) - len(dna_snippet) + 1):
-        present = False
-        if dna_snippet[0] == dna[char]:
-            for charo in range(0,len(dna_snippet)):
-                if dna[char + charo] != dna_snippet[charo]:
-                    break
-                if charo == len(dna_snippet) - 1:
-                    present = True
-        if present:
-            list.append(char)
+dna = 'GATATATGCATATACTT'
+dna_snippet = "ATAT"
+
+def locate_substring(dna_snippet, dna):
+    list= []
+    for i in range(len(dna)-3):
+        if (dna[i:i+4] == dna_snippet):
+            list.append(i)
     return list
-print(locate_substring("TATA","GATATATGCATATACTT"))
-[2, 10]
 
 #Annika
 
@@ -149,8 +144,7 @@ def hamming_dist(dna1,dna2):
         if (dna1[i] == dna2[i]):
             x += 1
             y = len(dna1) - x
-    return y
-    
+    return y 
 
 #Emmy
 
