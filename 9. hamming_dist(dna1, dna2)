@@ -1,0 +1,10 @@
+dna1 = 'GAGCCTACTAACGGGAT'
+dna2 = 'CATCGTAATGACGGCCT'
+
+def hamming_dist(dna1,dna2):
+    x = 0
+    for i in range(len(dna1)):
+        if (dna1[i] == dna2[i]):
+            x += 1
+            y = len(dna1) - x
+    return y
