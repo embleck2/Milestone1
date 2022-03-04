@@ -1,0 +1,156 @@
+#Annika
+
+def s( dna ):
+    dict = {'A' : 0, 'C' : 0, 'G' : 0, 'T' : 0}
+    for letter in dict:
+        dict[letter] += dna.upper().count(letter)
+    return dict
+    
+
+def dna2rna(dna):
+    rna = ''
+    for char in dna:
+        if char == 'A':
+            rna += 'A'
+        elif char == 'T':
+            rna += 'U'
+        elif char == 'G':
+            rna += 'G'
+        elif char == 'C':
+            rna += 'C'
+    return rna
+    
+
+def reverse_complement(dna):
+    comp = ''
+    for symbol in dna:
+        if symbol == 'A':
+            comp = comp + 'T'
+        elif symbol == 'T':
+            comp = comp + 'A'
+        elif symbol == 'C':
+            comp = comp + 'G'
+        elif symbol == 'G':
+            comp = comp + 'C'
+    return comp[::-1]
+    
+
+#Emmy
+
+def mendels_law (hom, het, rec):
+    # total calculation
+    total = hom + het + rec
+    def tot (x):
+        sumt = 0
+        for i in range(0,x):
+            sumt += i
+        return sumt
+    n_total = tot(total)
+    # aaaa calculation
+    def aaaa (a):
+        sumrec = 0
+        for i in range(0,a):
+            sumrec += i
+        return sumrec
+    calcaaaa = 1*aaaa(rec)
+    # AaAa calculation
+    def AaAa (b):
+        sumhet = 0
+        for i in range(0,b):
+            sumhet += i
+        return sumhet
+    calcAaAa = .25*AaAa(het)
+    # Aaaa calculation
+    Aaaa = het*rec
+    calcAaaa = .5*Aaaa
+    # calculation
+    n_rec = calcaaaa + calcAaAa + calcAaaa
+    P = 1 - (n_rec/n_total)
+    return P
+    
+
+# Rose
+
+def fibonacci_rabbits(n, k):
+    if n == 1:
+        return 1
+    if n == 2:
+        return 1
+    return fibonacci_rabbits((n-1), k) + k*(fibonacci_rabbits((n-2), k))
+ 
+ # Rose & Aryan
+
+dna_list = ["CCTGCGGAAGATCGGCACTAGAATAGCCAGAACCGTTTCTCTGAGGCTTCCGGCCTTCCCTCCCACTAATAATTCTGAGG",
+ "CCATCGGTAGCGCATCCTTAGTCCAATTAAGTCCCTATCCAGGCGCTCCGCCGAAGGTCTATATCCATTTGTCAGCAGACACGC",
+ "CCACCCTCGTGGTATGGCTAGGCATTCAGGAACCGGAGAACGCTTCAGACCAGCCCGGACTGGGAACCTGCGGGCAGTAGGTGGAAT"]
+def gc_content(dna_list):
+    index = 0 
+    highest_percent = 0
+    for index in range(0,len(dna_list)):
+        count = 0 
+        for char in dna_list[index]:
+            if char == 'C' or char == 'G':
+                count = count + 1
+        percentage = 100*count / (len(dna_list[index]))
+        if percentage > highest_percent:
+            highest_percent = percentage
+    return(index, highest_percent)
+print(gc_content(dna_list))
+(2, 60.91954022988506)
+
+# Rose
+
+def rna2codon(rna):
+    genetic_code = {
+        'UUU': 'F', 'UUC': 'F', 'UUA': 'L', 'UUG': 'L',        'CUU': 'L', 'CUC': 'L', 'CUA': 'L', 'CUG': 'L',
+        'AUU': 'I', 'AUC': 'I', 'AUA': 'I', 'AUG': 'M',        'GUU': 'V', 'GUC': 'V', 'GUA': 'V', 'GUG': 'V',
+
+        'UCU': 'S', 'UCC': 'S', 'UCA': 'S', 'UCG': 'S',        'CCU': 'P', 'CCC': 'P', 'CCA': 'P', 'CCG': 'P',
+        'ACU': 'T', 'ACC': 'T', 'ACA': 'T', 'ACG': 'T',        'GCU': 'A', 'GCC': 'A', 'GCA': 'A', 'GCG': 'A',
+
+        'UAU': 'Y', 'UAC': 'Y', 'UAA': '*', 'UAG': '*',        'CAU': 'H', 'CAC': 'H', 'CAA': 'Q', 'CAG': 'Q',
+        'AAU': 'N', 'AAC': 'N', 'AAA': 'K', 'AAG': 'K',        'GAU': 'D', 'GAC': 'D', 'GAA': 'E', 'GAG': 'E',
+
+        'UGU': 'C', 'UGC': 'C', 'UGA': '*', 'UGG': 'W',        'CGU': 'R', 'CGC': 'R', 'CGA': 'R', 'CGG': 'R',
+        'AGU': 'S', 'AGC': 'S', 'AGA': 'R', 'AGG': 'R',        'GGU': 'G', 'GGC': 'G', 'GGA': 'G', 'GGG': 'G',
+    }
+    codons = ''
+    for index in range(0,len(rna)-3,3):
+        key = rna[index:index+3]
+        codons += genetic_code[key]
+    return codons
+#print(rna2codon(sample_rna))
+
+#Rose & Annika
+
+dna = 'GATATATGCATATACTT'
+dna_snippet = "ATAT"
+
+def locate_substring(dna_snippet, dna):
+    list= []
+    for i in range(len(dna)-3):
+        if (dna[i:i+4] == dna_snippet):
+            list.append(i)
+    return list
+
+#Annika
+
+dna1 = 'GAGCCTACTAACGGGAT'
+dna2 = 'CATCGTAATGACGGCCT'
+
+def hamming_dist(dna1,dna2):
+    x = 0
+    for i in range(len(dna1)):
+        if (dna1[i] == dna2[i]):
+            x += 1
+            y = len(dna1) - x
+    return y 
+
+#Emmy
+
+def count_dom_phenotype(genotypes):
+    # total calculation 
+    total = sum(genotypes)*2
+    rec_ = 2*(genotypes[3]*.25 + genotypes[4]*0.5 + genotypes[5])
+    domnum = total-rec_
+    return domnum
