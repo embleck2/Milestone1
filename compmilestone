@@ -95,8 +95,6 @@ def gc_content(dna_list):
         if percentage > highest_percent:
             highest_percent = percentage
     return(index, highest_percent)
-print(gc_content(dna_list))
-(2, 60.91954022988506)
 
 # Rose
 
@@ -119,7 +117,6 @@ def rna2codon(rna):
         key = rna[index:index+3]
         codons += genetic_code[key]
     return codons
-print(rna2codon(sample_rna))
 
 #Rose & Annika
 
