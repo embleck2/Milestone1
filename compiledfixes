@@ -1,3 +1,4 @@
+
 #Annika
 
 def s( dna ):
@@ -181,10 +182,13 @@ def source_rna(protein):
 # Annika & Emmy
 
 def splice_rna(dna, intron_list):
-    rna = dna2rna(dna)
     for intron in intron_list:
-        rna = rna.replace(intron, '')
-    rna = rna.replace(intron_list,'')
-    print(rna)
+        dna = dna.replace(intron, '')
+    rna = dna2rna(dna)
     proteinstr = rna2codon(rna)
+    stops = ['UAA','UAG','UGA'] #b/c not included in rna2codon()
+    for stop in stops:
+        if rna[(len(rna) - 3):] == stop:
+            proteinstr += '*'
     return proteinstr
+    
